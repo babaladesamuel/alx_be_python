@@ -1,28 +1,25 @@
 # daily_reminder.py
 
 def main():
-    # Loop until valid task is entered (non-empty)
-    while True:
+    # Prompt for Task
+    task = input("Enter your task: ").strip()
+    while not task:
+        print("Task cannot be empty. Please enter a task.")
         task = input("Enter your task: ").strip()
-        if task:
-            break
-        print("Task description cannot be empty. Please try again.")
 
-    # Loop until valid priority entered
-    while True:
+    # Prompt for Priority with validation
+    priority = input("Priority (high/medium/low): ").strip().lower()
+    while priority not in ("high", "medium", "low"):
+        print("Invalid priority. Please enter 'high', 'medium', or 'low'.")
         priority = input("Priority (high/medium/low): ").strip().lower()
-        if priority in ["high", "medium", "low"]:
-            break
-        print("Invalid priority. Please enter high, medium, or low.")
 
-    # Loop until valid time-bound answer entered
-    while True:
+    # Prompt for Time Bound with validation
+    time_bound = input("Is it time-bound? (yes/no): ").strip().lower()
+    while time_bound not in ("yes", "no"):
+        print("Invalid input. Please enter 'yes' or 'no'.")
         time_bound = input("Is it time-bound? (yes/no): ").strip().lower()
-        if time_bound in ["yes", "no"]:
-            break
-        print("Invalid input. Please enter yes or no.")
 
-    # Use match-case to determine base reminder message
+    # Use match-case for priority response
     match priority:
         case "high":
             reminder = f"'{task}' is a high priority task"
@@ -31,14 +28,15 @@ def main():
         case "low":
             reminder = f"'{task}' is a low priority task"
 
-    # Modify reminder based on time sensitivity
+    # Use if statement to modify reminder if time-bound
     if time_bound == "yes":
         reminder += " that requires immediate attention today!"
     else:
         reminder += ". Consider completing it when you have free time."
 
-    print(f"\nReminder: {reminder}")
+    # Print customized reminder
+    print("\nReminder:", reminder)
+
 
 if __name__ == "__main__":
     main()
-
