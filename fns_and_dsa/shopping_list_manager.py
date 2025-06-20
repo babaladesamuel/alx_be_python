@@ -45,6 +45,3 @@ def main():
 # Only runs main if this file is executed directly
 if __name__ == "__main__":
     main()
-
-
-
