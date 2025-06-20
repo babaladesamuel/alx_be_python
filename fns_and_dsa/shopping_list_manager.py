@@ -1,4 +1,4 @@
-ef display_menu():
+def display_menu():
     print("Shopping List Manager")
     print("1. Add Item")
     print("2. Remove Item")
@@ -6,12 +6,12 @@ ef display_menu():
     print("4. Exit")
 
 def main():
-    shopping_list = []  # <-- Use this exact name
+    shopping_list = []
 
     while True:
-        display_menu()  # <-- Must be this exact name
+        display_menu()
         try:
-            choice = int(input("Enter your choice: "))  # <-- Must convert input to int
+            choice = int(input("Enter your choice: "))
         except ValueError:
             print("Invalid input. Please enter a number.")
             continue
